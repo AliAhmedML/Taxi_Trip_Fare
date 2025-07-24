@@ -25,7 +25,7 @@ This project implements a **taxi trip analysis system** using machine learning. 
 2. Create a dedicated environment:  
 
    ```bash  
-   conda create -p venv_Hotel python==3.11 
+   conda create -p venv_Taxi python==3.11 
 
 ## 🛠️ Environment Setup
 
