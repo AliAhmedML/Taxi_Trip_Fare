@@ -128,7 +128,7 @@ ENV/
 env.bak/
 venv.bak/
 venv_Taxi/
-
+.vscode
 # Spyder project settings
 .spyderproject
 .spyproject
