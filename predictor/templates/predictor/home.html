@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taxi Fare Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f8fa;
+            padding: 40px;
+        }
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007BFF;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-field label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .form-field input,
+        .form-field select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .form-actions {
+            grid-column: span 5;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 30px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 900px) {
+            .form-actions {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width: 600px) {
+            .form-actions {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Taxi Fare Prediction</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div style="color: red;">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="form-actions">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
