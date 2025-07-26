@@ -127,26 +127,31 @@ Download and install [CUDA Toolkit 12.5.0](https://developer.nvidia.com/cuda-12-
 ## 📁 Project Structure
 
 1. **Main Application**
-   - `app.py`: Launches the Flask interface for Hotel Demand prediction.
+   - `manage.py`: Django's command-line utility for administrative tasks.
 
-2. **Prediction Logic**
-   - `predictor.py`: Contains the `HotelBookingPredictor` class and all machine learning logic.
+2. **Core Application**
+   - `predictor/`: Main app handling ML prediction logic.
+     - `views.py`: Handles prediction view logic and rendering results.
+     - `forms.py`: Defines form fields for user input.
+     - `urls.py`: URL routing for the predictor app.
+     - `templates/`: Contains `home.html` and `result.html` templates.
+     - `model/`: Pickled model files (e.g., `Taxi.pkl`, `Scaler.pkl`, `PCA.pkl`, etc.)
 
-3. **Templates (`templates/`)**
-   - `index.html`: Main HTML template for the Flask web interface.
-
-4. **Static Files (`static/`)**
-   - `style.css`: Custom CSS used to style the Flask frontend.
+3. **Project Configuration**
+   - `taxi_fare/`: Django project settings.
+     - `settings.py`: Project settings (DEBUG, apps, templates, etc.)
+     - `urls.py`: Root URL configuration.
+     - `wsgi.py`: WSGI entry point for deployment.
 
 ## 🚀 Run the App
 
-### Start the Flask Application
+### Start the Django Application
 
 1. Make sure your virtual environment is activated:
 
    ```bash
    conda activate ./venv_Taxi
-2. Run the Flask app:
+2. Run the Django app:
 
    ```bash
-   python app.py
+   python manage.py runserver
